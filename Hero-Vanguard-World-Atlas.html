@@ -1,0 +1,355 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hero Vanguard · World Atlas</title>
+<style>
+:root{--bg:#07101e;--panel:#0d182a;--panel2:#12213a;--line:#293e5f;--text:#edf3ff;--muted:#9cabc4;--gold:#ffd36a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 55% -20%,#26486f,#0b1527 38%,var(--bg) 76%);color:var(--text);font:14px/1.55 Inter,Segoe UI,sans-serif}a{color:inherit}
+button{font:inherit}.topbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 20px;background:#07101eee;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.topbar h1{font-size:19px;margin:0}.topbar p{color:var(--muted);font-size:11px;margin:2px 0 0}.top-stats{display:flex;gap:7px;flex-wrap:wrap}.top-stats span,.count{border:1px solid #304867;border-radius:999px;padding:5px 9px;color:var(--muted);font-size:10px}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;padding:18px}.nav{position:sticky;top:87px;height:calc(100vh - 105px);overflow:auto;background:#0b1628;border:1px solid var(--line);border-radius:15px;padding:10px}.nav-title{padding:8px 9px;color:var(--gold);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.region-button{width:100%;display:flex;align-items:center;gap:10px;text-align:left;color:var(--text);border:1px solid transparent;background:transparent;border-radius:11px;padding:8px;cursor:pointer;margin:2px 0}.region-button:hover{background:#14233b}.region-button.active{background:#182d49;border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}.nav-icon{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:11px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,#17283e),#091424 75%);border:1px solid #2b4163;overflow:hidden}.nav-icon img{width:94%;height:94%;object-fit:contain;filter:drop-shadow(0 4px 5px #0009)}.region-button b,.region-button small{display:block}.region-button b{font-size:12px}.region-button small{font-size:9px;color:var(--muted);margin-top:2px}.main{min-width:0}.panel{display:none}.panel.active{display:block}.region-hero{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 15%,#13233a),#0d182a);border:1px solid color-mix(in srgb,var(--accent) 55%,#293e5f);border-radius:16px;padding:18px}.region-icon{width:130px;height:112px;display:grid;place-items:center;border-radius:16px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 20%,#17283e),#081321 76%);border:1px solid color-mix(in srgb,var(--accent) 60%,#293e5f);overflow:hidden}.region-icon img{width:102%;height:102%;object-fit:contain;filter:drop-shadow(0 9px 9px #0009)}.kicker{font-size:10px;font-weight:900;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}.hero-copy h1{font-size:26px;margin:3px 0}.hero-copy p{color:#c5d3e8;margin:0}.hero-boss{text-align:right;max-width:250px;padding:11px 13px;background:#091524;border:1px solid #304765;border-radius:11px}.hero-boss span,.hero-boss b{display:block}.hero-boss span{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.hero-boss b{color:var(--accent);margin-top:3px}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 18px}.facts article{background:#0d182a;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:11px;padding:11px}.facts span,.facts b{display:block}.facts span{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.07em}.facts b{font-size:11px;margin-top:4px}.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.info-card{background:#0d182a;border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}.info-card.wide{grid-column:1/-1}.info-card h3{color:var(--accent);font-size:14px;margin:0 0 9px}.info-card p,.info-card li{color:#cad7ea;font-size:12px}.info-card ul,.info-card ol{padding-left:19px}.info-card table{display:block;width:100%;overflow:auto;border-collapse:collapse}.info-card th,.info-card td{border:1px solid var(--line);padding:7px;min-width:130px;text-align:left}.info-card th{color:var(--gold)}.bestiary{margin-top:18px;background:#0a1526;border:1px solid var(--line);border-radius:15px;padding:16px}.section-head{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:14px}.section-head h2{font-size:18px;margin:3px 0}.section-head p{color:var(--muted);font-size:11px;margin:0}.mob-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mob-card{display:grid;grid-template-columns:150px minmax(0,1fr);min-height:185px;background:#101e33;border:1px solid #2d4466;border-radius:13px;overflow:hidden}.mob-visual{display:grid;place-items:center;position:relative;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 20%,#17283e),#091424 70%);border-right:1px solid #2d4466}.mob-visual:after{content:"";position:absolute;inset:10px;border:1px dashed color-mix(in srgb,var(--accent) 50%,transparent);border-radius:50%}.mob-visual img{position:relative;z-index:1;width:94%;height:94%;object-fit:contain;filter:drop-shadow(0 12px 12px #0008)}.mob-body{padding:12px}.mob-meta{display:flex;justify-content:space-between;gap:7px;color:var(--muted);font-size:9px;text-transform:uppercase}.mob-meta b{color:var(--accent)}.mob-body h3{font-size:14px;margin:6px 0}.mob-body h3 a{color:var(--text);text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--accent);text-underline-offset:3px}.mob-body h3 a:hover{color:var(--accent)}.mob-body p{font-size:11px;color:#bdcce1;margin:0}.empty{padding:30px;color:var(--muted)}
+@media(max-width:1200px){.facts{grid-template-columns:repeat(2,1fr)}.mob-grid{grid-template-columns:1fr}}@media(max-width:850px){.layout{display:block;padding:9px}.nav{position:static;height:auto;display:flex;overflow:auto;margin-bottom:10px}.nav-title{display:none}.region-button{min-width:190px}.region-hero{grid-template-columns:auto 1fr}.hero-boss{grid-column:1/-1;text-align:left;max-width:none}.info-grid,.facts{grid-template-columns:1fr}.mob-card{grid-template-columns:120px 1fr}.topbar{position:static}.top-stats{display:none}}@media(max-width:520px){.mob-card{display:block}.mob-visual{height:190px;border-right:0;border-bottom:1px solid #2d4466}}
+</style></head><body>
+<header class="topbar"><div><h1>Hero Vanguard · World Atlas</h1><p>Dashboard world building, đời sống, background và quần thể mob theo từng khu vực</p></div><div class="top-stats"><span>1 quốc gia</span><span>6 khu vực</span><span>32 mob</span><span>Gameplay theo ngày</span></div></header>
+<div class="layout"><aside class="nav"><div class="nav-title">Chọn hồ sơ</div><button class="region-button" data-region="peace" style="--accent:#73b7ff"><span class="nav-icon"><img src="world-atlas-assets/region-icons/peace.png" alt=""></span><span><b>Vương quốc Peace</b><small>Tổng quan quốc gia</small></span></button><button class="region-button" data-region="region-0" style="--accent:#e5b64d"><span class="nav-icon"><img src="world-atlas-assets/region-icons/region-0.png" alt=""></span><span><b>Ngoại Ô Breeze</b><small>Hồi 0 · 4 mob</small></span></button><button class="region-button" data-region="region-1" style="--accent:#82cf74"><span class="nav-icon"><img src="world-atlas-assets/region-icons/region-1.png" alt=""></span><span><b>Thảo Nguyên Gió Hát</b><small>Hồi 1 · 6 mob</small></span></button><button class="region-button" data-region="region-2" style="--accent:#6dc9ef"><span class="nav-icon"><img src="world-atlas-assets/region-icons/region-2.png" alt=""></span><span><b>Hẻm Núi Pha Lê</b><small>Hồi 2 · 5 mob</small></span></button><button class="region-button" data-region="region-3" style="--accent:#45d4cf"><span class="nav-icon"><img src="world-atlas-assets/region-icons/region-3.png" alt=""></span><span><b>Bờ Biển San Hô</b><small>Hồi 3 · 5 mob</small></span></button><button class="region-button" data-region="region-4" style="--accent:#a78be8"><span class="nav-icon"><img src="world-atlas-assets/region-icons/region-4.png" alt=""></span><span><b>Rừng Thông Chạng Vạng</b><small>Hồi 4 · 6 mob</small></span></button><button class="region-button" data-region="region-5" style="--accent:#ed7486"><span class="nav-icon"><img src="world-atlas-assets/region-icons/region-5.png" alt=""></span><span><b>Lâu Đài Ma Vương</b><small>Hồi 5 · 6 mob</small></span></button><button class="region-button" data-region="system" style="--accent:#ffd36a"><span class="nav-icon"><img src="world-atlas-assets/region-icons/system.png" alt=""></span><span><b>Khung thiết kế</b><small>Tiêu chuẩn & liên kết</small></span></button></aside><main class="main"><section class="panel" id="peace" style="--accent:#73b7ff"><section class="region-hero" style="--accent:#73b7ff">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/peace.png" alt="Biểu tượng Vương quốc Peace"></div><div class="hero-copy"><span class="kicker">Hồ sơ quốc gia</span><h1>Vương quốc Peace</h1><p>Trung tâm kinh tế và xã hội của Ionie</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Không phải khu vực chiến đấu</b></div>
+  </section>
+  <section class="facts" style="--accent:#73b7ff">
+    <article><span>Vai trò cốt truyện</span><b>Điểm khởi nguồn nhiệm vụ SSS</b></article><article><span>Kinh tế / tài nguyên</span><b>Điều phối giao thương toàn lục địa</b></article><article><span>Cộng đồng</span><b>Kinh đô, thị trấn và trạm Công Hội</b></article><article><span>Khủng hoảng</span><b>Trật tự che giấu các bất đồng</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc chung</h3><p>Peace là quốc gia trung tâm của lục địa Ionie, phát triển nhờ kiểm soát mạng lưới giao thương nối vùng nông nghiệp Breeze, Thảo Nguyên Gió Hát, Hẻm Núi Pha Lê và Bờ Biển San Hô. Peace không trực tiếp quản lý mọi vùng hoang dã; thay vào đó, vương quốc giao Công Hội Mạo Hiểm Giả bảo vệ đường sá, giải quyết quái vật và hỗ trợ các khu dân cư xa trung tâm.</p>
+<p>Bề ngoài, Peace là một xã hội ổn định, lịch thiệp và ít xung đột. Người dân quen giải quyết khó khăn bằng đơn yêu cầu, hợp đồng và nhiệm vụ Công Hội. Tuy nhiên, sự bình yên này cũng khiến nhiều người né tránh bất đồng, xem cảm xúc tiêu cực là điều đáng xấu hổ và dễ chấp nhận lời giải thích đơn giản rằng mọi tai họa đều do Ma Vương gây ra.</p>
+</article><article class="info-card"><h3>Cuộc sống thường ngày</h3><ul>
+<li>Buổi sáng bắt đầu bằng tiếng chuông chợ và bảng nhiệm vụ mới tại Công Hội.</li>
+<li>Nông sản từ Breeze, khoáng sản từ Hẻm Núi và hàng biển từ San Hô được vận chuyển qua các trạm thu phí.</li>
+<li>Người dân thường thuê mạo hiểm giả hộ tống khi phải ra ngoài khu dân cư.</li>
+<li>Trẻ em lớn lên cùng những truyện kể về anh hùng đánh bại Ma Vương, nhưng phần lớn xem đó là lịch sử xa xưa.</li>
+<li>Các gia đình coi bữa tối và Tháng Lò Sưởi là thời điểm quan trọng để duy trì sự hòa thuận.</li>
+</ul>
+</article><article class="info-card"><h3>Kiến trúc, văn hóa và kinh tế</h3><ul>
+<li><strong>Kiến trúc:</strong> Tường đá sáng màu, mái xanh, cửa sổ vòm và huy hiệu chim bồ câu cách điệu. Trạm Công Hội luôn có bảng nhiệm vụ lớn và chuông báo động.</li>
+<li><strong>Trang phục:</strong> Màu xanh, trắng và vàng; thương nhân đeo thẻ tuyến đường, mạo hiểm giả đeo huy hiệu cấp bậc.</li>
+<li><strong>Ẩm thực:</strong> Bánh mì Breeze, thịt nướng, súp củ, cá muối San Hô và gia vị nhập từ cảng.</li>
+<li><strong>Kinh tế:</strong> Phụ thuộc mạnh vào việc các tuyến đường hoạt động liên tục. Chỉ một vùng gặp khủng hoảng cũng khiến giá cả toàn vương quốc thay đổi.</li>
+<li><strong>Niềm tin phổ biến:</strong> Trật tự tạo ra hòa bình; Công Hội đại diện cho sự an toàn; Ma Vương là nguồn gốc của bất ổn.</li>
+</ul>
+</article><article class="info-card wide"><h3>Cách thể hiện trong game</h3><p>Peace không cần trở thành một Hồi chiến đấu riêng. Vương quốc xuất hiện qua màn hình mở đầu, bảng nhiệm vụ, thư từ, thương nhân và các sự kiện kể chuyện. Background nên chuyển từ quảng trường sáng sủa, cờ hội và đoàn xe đông đúc sang cảnh bảng nhiệm vụ đầy báo cáo khẩn, kho hàng thiếu hụt và người dân bắt đầu tranh luận khi chu kỳ Ma Vương đến gần.</p>
+<hr>
+</article></section></section><section class="panel" id="region-0" style="--accent:#e5b64d"><section class="region-hero" style="--accent:#e5b64d">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/region-0.png" alt="Biểu tượng Ngoại Ô Breeze"></div><div class="hero-copy"><span class="kicker">Hồ sơ khu vực · Hồi 0</span><h1>Ngoại Ô Breeze</h1><p>Vùng nông nghiệp và quê hương của Mici</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Thủ lĩnh Râu Đỏ</b></div>
+  </section>
+  <section class="facts" style="--accent:#e5b64d">
+    <article><span>Vai trò cốt truyện</span><b>Khởi đầu hành trình</b></article><article><span>Kinh tế / tài nguyên</span><b>Nông sản, lương thực, gia súc</b></article><article><span>Cộng đồng</span><b>Làng nhỏ sống theo cộng đồng</b></article><article><span>Khủng hoảng</span><b>Mất đoàn xe và thiếu lương thực</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc khu vực</h3><p>Breeze là vùng ngoại ô nông nghiệp nằm ngoài khu vực đô thị lớn của Peace. Đây là nơi người dân sống gần nhau, biết rõ từng gia đình và dựa vào sự hợp tác để tồn tại. Breeze đại diện cho cuộc sống nhỏ bé, bình thường mà Mici muốn bảo vệ và cũng là hình mẫu cho quán ăn anh mong muốn mở sau hành trình.</p>
+</article><article class="info-card"><h3>Cảnh quan và khí hậu</h3><ul>
+<li>Đồng lúa mì và rau củ trải dọc theo các con đường đất.</li>
+<li>Hàng rào gỗ, cối xay gió nhỏ, kho lương, chuồng gia súc và rừng thấp bao quanh làng.</li>
+<li>Khí hậu ôn hòa, gió nhẹ và có sương mỏng vào sáng sớm.</li>
+<li>Ngoài phạm vi đèn làng là đường rừng hẹp, nơi thú hoang và sơn tặc thường ẩn nấp.</li>
+</ul>
+</article><article class="info-card"><h3>Cư dân, sinh kế và lối sống</h3><p>Người Breeze chủ yếu là nông dân, thợ xay, thợ mộc, người đánh xe và thương nhân nhỏ. Họ thức dậy trước bình minh, làm việc theo mùa và thường ăn chung khi thu hoạch. Tiền không lưu thông nhiều bằng việc đổi thực phẩm, dụng cụ và ngày công.</p>
+<p>Mọi người có thói quen để một phần thức ăn tại kho chung phòng khi mất mùa. Vì vậy, việc đoàn xe lương thực biến mất không chỉ là thiệt hại kinh tế mà còn phá vỡ niềm tin rằng cả làng luôn có thể cùng nhau vượt qua khó khăn.</p>
+</article><article class="info-card"><h3>Văn hóa và kiến trúc</h3><ul>
+<li><strong>Nhà ở:</strong> Nhà gỗ thấp, mái ngói đỏ hoặc mái rơm, sân sau trồng rau và phơi thảo mộc.</li>
+<li><strong>Thức ăn:</strong> Bánh mì nóng, súp củ, thịt nướng và rau theo mùa.</li>
+<li><strong>Phong tục:</strong> Chia phần thu hoạch đầu tiên cho kho chung; mời khách lạ ăn trước khi hỏi chuyện.</li>
+<li><strong>Lễ hội:</strong> Ngày Mở Kho vào đầu mùa thu hoạch, khi dân làng kiểm kê và tổ chức bữa ăn lớn.</li>
+<li><strong>Điều cấm kỵ:</strong> Lãng phí thức ăn hoặc bỏ mặc người bị đói.</li>
+</ul>
+</article><article class="info-card wide"><h3>Background và biểu hiện trong gameplay</h3><ul>
+<li><strong>Background ngoài Hồi:</strong> Toàn cảnh làng Breeze dưới nắng sáng, đồng lúa, cối xay và con đường dẫn ra thế giới.</li>
+<li><strong>Nền chiến đấu 1:</strong> Đồng ruộng và hàng rào gỗ, phù hợp các ngày đầu.</li>
+<li><strong>Nền chiến đấu 2:</strong> Đường xe hàng xuyên rừng, xuất hiện dấu bánh xe và bao lương rơi.</li>
+<li><strong>Nền chiến đấu 3:</strong> Kho hàng bỏ hoang và trại sơn tặc, ánh sáng chuyển sang chiều tối.</li>
+<li><strong>Biến đổi theo tiến trình:</strong> Ban đầu làng có khói bếp và người làm đồng; về cuối kho lương trống, cửa nhà đóng sớm và bảng thông báo đầy yêu cầu cứu trợ.</li>
+<li><strong>Âm thanh:</strong> Gió nhẹ, chuông gia súc, tiếng xe gỗ; khi nguy hiểm tăng sẽ thêm tiếng sói và tiếng kim loại từ trại cướp.</li>
+</ul>
+</article><article class="info-card wide"><h3>Liên kết cốt truyện</h3><p>Cuộc khủng hoảng tại Breeze cho thấy hậu quả của việc Peace ưu tiên lễ xuất quân hơn đời sống vùng ngoại ô. Đây là nơi Mici học rằng hoàn thành đúng hợp đồng chưa chắc đã giải quyết đúng vấn đề.</p>
+<hr>
+</article></section><section class="bestiary">
+    <div class="section-head"><div><span class="kicker">Quần thể sinh vật</span><h2>Bestiary của Ngoại Ô Breeze</h2><p>Ảnh đã được tách nền; mỗi mob được đặt cạnh mô tả sinh thái và vai trò trong vùng.</p></div><span class="count">4 loài / đơn vị</span></div>
+    <div class="mob-grid"><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/0/0-01.png" alt="Sói rừng"></div><div class="mob-body"><div class="mob-meta"><span>0-01</span><b>Thú săn mồi</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h0_m01/mob-0-01" target="_top">Sói rừng</a></h3><p>Sói nhỏ sống theo đàn tại rìa rừng, có bộ lông xám dày và thính giác tốt. Bình thường chúng tránh xa làng và săn thú nhỏ, nhưng việc thức ăn bị cắt đứt cùng sự lan rộng của tà khí khiến đàn sói tiến gần đường vận chuyển. Trước khi xuất hiện, người chơi có thể thấy dấu chân, lông mắc trên bụi hoặc nghe tiếng hú.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/0/0-02.png" alt="Chuột đồng trộm lương"></div><div class="mob-body"><div class="mob-meta"><span>0-02</span><b>Sinh vật đồng ruộng</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h0_m01/mob-0-02" target="_top">Chuột đồng trộm lương</a></h3><p>Loài chuột thông minh sống quanh kho, ruộng và xe hàng. Chúng thu gom hạt giống vào túi nhỏ, thường chỉ gây phiền phức nhưng trở nên hung hăng khi nguồn thức ăn bị xáo trộn. Trong hệ sinh thái, chúng là thức ăn của sói và giúp phát tán hạt cây.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/0/0-03.png" alt="Sơn tặc đường rừng"></div><div class="mob-body"><div class="mob-meta"><span>0-03</span><b>Đơn vị cận chiến</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h0_m01/mob-0-03" target="_top">Sơn tặc đường rừng</a></h3><p>Những người sống ngoài phạm vi bảo hộ của Peace, mặc đồ da cũ và dùng vũ khí dễ sửa chữa. Không phải tất cả đều thích cướp bóc; nhiều người tham gia vì gia đình bị cắt cứu trợ. Họ đặt bẫy trên đường, đánh nhanh rồi rút vào rừng.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/0/0-04.png" alt="Thủ lĩnh Râu Đỏ"></div><div class="mob-body"><div class="mob-meta"><span>0-04</span><b>Boss khu vực</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h0_m01/mob-0-04" target="_top">Thủ lĩnh Râu Đỏ</a></h3><p>Một cựu hộ vệ đoàn xe có vóc người thấp nhưng chắc khỏe, râu đỏ nổi bật và trang bị được ghép từ nhiều chuyến hàng. Râu Đỏ hiểu rõ tuyến đường và cách vận hành của Công Hội. Hắn là Boss mang tính xã hội đầu tiên: nguy hiểm, phạm tội nhưng có động cơ mà người chơi có thể hiểu.</p></div></article></div>
+  </section></section><section class="panel" id="region-1" style="--accent:#82cf74"><section class="region-hero" style="--accent:#82cf74">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/region-1.png" alt="Biểu tượng Thảo Nguyên Gió Hát"></div><div class="hero-copy"><span class="kicker">Hồ sơ khu vực · Hồi 1</span><h1>Thảo Nguyên Gió Hát</h1><p>Trung tâm giao thương đường bộ</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Vua Goblin Grug</b></div>
+  </section>
+  <section class="facts" style="--accent:#82cf74">
+    <article><span>Vai trò cốt truyện</span><b>Gặp Tarot và hiểu cộng đồng Goblin</b></article><article><span>Kinh tế / tài nguyên</span><b>Đường vận chuyển, chăn nuôi, trao đổi</b></article><article><span>Cộng đồng</span><b>Trạm nghỉ và trại bán du mục</b></article><article><span>Khủng hoảng</span><b>Gió đen làm gián đoạn tuyến đường</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc khu vực</h3><p>Thảo Nguyên Gió Hát là trung tâm giao thương đường bộ của Ionie. Vùng đất không có một thành phố lớn duy nhất mà được tạo nên từ mạng lưới trạm nghỉ, cối xay, giếng nước, chợ tạm và các đoàn người liên tục di chuyển. Con đường chính là tài sản quan trọng nhất của vùng.</p>
+</article><article class="info-card"><h3>Cảnh quan và khí hậu</h3><ul>
+<li>Đồng cỏ vàng xanh kéo dài tới chân trời, các đồi thấp khiến gió thay đổi liên tục.</li>
+<li>Cối xay gió, cột chỉ đường, trạm xe và những cột đá linh thiêng của Goblin nổi bật trên nền trời.</li>
+<li>Ban ngày nắng mạnh nhưng thoáng; đêm lạnh và có thể nghe tiếng gió chạy qua cỏ.</li>
+<li>Gió đen từ phía Lâu Đài làm cỏ úa theo từng vệt và buộc nhiều đàn thú đổi đường di cư.</li>
+</ul>
+</article><article class="info-card"><h3>Cư dân, sinh kế và lối sống</h3><p>Thương nhân, người chăn gia súc và người đánh xe sống theo lịch trình của đoàn hàng. Họ không coi một căn nhà cố định là trung tâm cuộc sống; nơi quen thuộc nhất là tuyến đường, quán trọ và những người thường xuyên gặp lại.</p>
+<p>Các cộng đồng Goblin cũng sống bán du mục, dựng trại gần nguồn nước và cột gió. Goblin giỏi sửa đồ, tận dụng phế liệu và hiểu thời tiết hơn phần lớn thương nhân. Xung đột xảy ra khi người Peace xem đường lớn là tài sản của vương quốc, còn Goblin xem đó là vùng sinh tồn chung.</p>
+</article><article class="info-card"><h3>Văn hóa và kiến trúc</h3><ul>
+<li><strong>Công trình người:</strong> Trạm nghỉ mái thấp, cối xay cao, xe hàng có thể biến thành lều.</li>
+<li><strong>Công trình Goblin:</strong> Khung gỗ, vải vá nhiều màu, cánh gió và vật dụng tái chế.</li>
+<li><strong>Thức ăn:</strong> Thịt khô, bánh dẹt, phô mai, củ nướng và trà cỏ.</li>
+<li><strong>Phong tục:</strong> Chia sẻ tin tức về đường đi tại mỗi giếng nước; người lạ có thể đổi một câu chuyện lấy một bữa ăn.</li>
+<li><strong>Niềm tin Goblin:</strong> Cột gió giữ ký ức của tổ tiên; phá cột gió bị xem là xúc phạm nghiêm trọng.</li>
+</ul>
+</article><article class="info-card wide"><h3>Background và biểu hiện trong gameplay</h3><ul>
+<li><strong>Background ngoài Hồi:</strong> Một đoàn xe băng qua đồng cỏ, xa xa là pháo đài Goblin trên đồi gió.</li>
+<li><strong>Nền chiến đấu 1:</strong> Cối xay và đồng cỏ sáng, nhiều thương nhân.</li>
+<li><strong>Nền chiến đấu 2:</strong> Đường xe hàng với các ụ đá phục kích.</li>
+<li><strong>Nền chiến đấu 3:</strong> Trại Goblin và cột gió vào chiều đỏ.</li>
+<li><strong>Nền chiến đấu 4:</strong> Pháo đài đồi gió giữa gió đen.</li>
+<li><strong>Biến đổi theo tiến trình:</strong> Đường đông dần trở nên vắng; xe hàng bị bỏ lại; cờ trắng và cờ chiến tranh xuất hiện đồng thời trong trại Goblin.</li>
+<li><strong>Sự kiện phù hợp:</strong> Sửa bánh xe, chọn tuyến đi, chia nước, thương lượng phí đường, giúp dựng lại cột gió.</li>
+</ul>
+</article><article class="info-card wide"><h3>Liên kết cốt truyện</h3><p>Thảo nguyên cho thấy “quái vật” có cộng đồng, trẻ nhỏ, nơi ở và nhu cầu sinh tồn. Xung đột tại đây không thể giải quyết bền vững chỉ bằng đánh bại Vua Goblin; tuyến đường cần một thỏa thuận được cả thương nhân và Goblin chấp nhận.</p>
+<hr>
+</article></section><section class="bestiary">
+    <div class="section-head"><div><span class="kicker">Quần thể sinh vật</span><h2>Bestiary của Thảo Nguyên Gió Hát</h2><p>Ảnh đã được tách nền; mỗi mob được đặt cạnh mô tả sinh thái và vai trò trong vùng.</p></div><span class="count">6 loài / đơn vị</span></div>
+    <div class="mob-grid"><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/1/1-01.png" alt="Goblin do thám"></div><div class="mob-body"><div class="mob-meta"><span>1-01</span><b>Trinh sát</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h1_m01/mob-1-01" target="_top">Goblin do thám</a></h3><p>Goblin nhỏ, nhanh, mặc đồ ngụy trang bằng cỏ và mang dao ngắn. Chúng quan sát đoàn xe, đánh dấu hàng hóa và chỉ tấn công khi tin rằng trại đang bị đe dọa. Nếu được giúp đỡ, chúng có thể trở thành nguồn tin về đường đi.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/1/1-02.png" alt="Pháp sư gió Goblin"></div><div class="mob-body"><div class="mob-meta"><span>1-02</span><b>Pháp sư hỗ trợ</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h1_m01/mob-1-02" target="_top">Pháp sư gió Goblin</a></h3><p>Các pháp sư gìn giữ cột gió và dùng tinh thể nhỏ để điều hướng luồng khí. Áo choàng vá và nhiều túi thuốc cho thấy họ vừa là thầy cúng vừa là người chữa bệnh. Gió đen khiến phép thuật của họ mất ổn định, tạo ra các trận đánh thiên về hiệu ứng ngẫu nhiên.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/1/1-03.png" alt="Ong giáp thảo nguyên"></div><div class="mob-body"><div class="mob-meta"><span>1-03</span><b>Sinh vật hoang dã</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h1_m01/mob-1-03" target="_top">Ong giáp thảo nguyên</a></h3><p>Ong lớn làm tổ trong cối xay bỏ hoang và các hốc đá. Chúng thụ phấn cho hoa cỏ nhưng cực kỳ hung dữ khi gió đen làm tổ bị lệch hướng. Âm thanh vo ve và bóng đen lướt qua cỏ là dấu hiệu trước trận.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/1/1-04.png" alt="Vua Goblin Grug"></div><div class="mob-body"><div class="mob-meta"><span>1-04</span><b>Boss khu vực</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h1_m01/mob-1-04" target="_top">Vua Goblin Grug</a></h3><p>Grug mặc giáp ghép từ chiến lợi phẩm nhưng vẫn giữ biểu tượng cột gió trên vương miện. Hắn có vẻ hiếu chiến, song thực chất đang cố duy trì trật tự cho cộng đồng tị nạn. Grug chiến đấu bằng chùy lớn, mệnh lệnh và khả năng gọi các nhóm Goblin hỗ trợ.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/1/1-05.png" alt="Goblin phá đường"></div><div class="mob-body"><div class="mob-meta"><span>1-05</span><b>Đơn vị phòng thủ</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h1_m01/mob-1-05" target="_top">Goblin phá đường</a></h3><p>Goblin khỏe, chuyên kéo xe, dựng trại và phá vật cản. Khi chiến đấu, chúng dùng gậy gỗ và cơ thể nặng để chặn tuyến trước. Ngoài chiến đấu, đây là lực lượng lao động chính giúp cộng đồng Goblin tồn tại.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/1/1-06.png" alt="Đại bàng gió"></div><div class="mob-body"><div class="mob-meta"><span>1-06</span><b>Sinh vật hoang dã</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h1_m01/mob-1-06" target="_top">Đại bàng gió</a></h3><p>Chim săn mồi làm tổ trên các cột đá cao, thường đi theo đoàn thú và ăn xác còn lại. Gió đen khiến chúng nhầm xe hàng là mối đe dọa. Lông đại bàng được người thảo nguyên dùng để dự báo hướng gió nhưng việc săn chúng bị hạn chế.</p></div></article></div>
+  </section></section><section class="panel" id="region-2" style="--accent:#6dc9ef"><section class="region-hero" style="--accent:#6dc9ef">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/region-2.png" alt="Biểu tượng Hẻm Núi Pha Lê"></div><div class="hero-copy"><span class="kicker">Hồ sơ khu vực · Hồi 2</span><h1>Hẻm Núi Pha Lê</h1><p>Kỳ quan khoáng sản và kho lưu trữ cổ</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Titan Golem Khổng Lồ</b></div>
+  </section>
+  <section class="facts" style="--accent:#6dc9ef">
+    <article><span>Vai trò cốt truyện</span><b>Frieran gia nhập, hé lộ Hiệp Ước</b></article><article><span>Kinh tế / tài nguyên</span><b>Pha lê, khoáng sản và trang bị</b></article><article><span>Cộng đồng</span><b>Trại mỏ bậc thang</b></article><article><span>Khủng hoảng</span><b>Tha hóa, hầm sập và Titan thức tỉnh</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc khu vực</h3><p>Hẻm Núi Pha Lê là trung tâm khai thác khoáng sản của Ionie, vừa là kỳ quan thiên nhiên vừa là dấu tích của nền ma thuật cổ. Cuộc sống tại đây được tổ chức quanh ca làm việc, thang nâng, đường xe goòng và độ ổn định của mỏ.</p>
+</article><article class="info-card"><h3>Cảnh quan và khí hậu</h3><ul>
+<li>Vách núi dựng đứng, cầu treo, đường hầm và các mạch pha lê phát sáng.</li>
+<li>Ban ngày khô, nhiều bụi; ban đêm lạnh sâu nhưng tinh thể phát ánh sáng xanh tím.</li>
+<li>Tiếng khai thác và tiếng bước chân vang rất xa, khiến cư dân có thói quen phân biệt nguy hiểm qua âm thanh.</li>
+<li>Các khu mỏ mới sáng và đông người; khu mỏ cổ tối, có rune và máy móc không ai còn hiểu hoàn toàn.</li>
+</ul>
+</article><article class="info-card"><h3>Cư dân, sinh kế và lối sống</h3><p>Thợ mỏ, thợ rèn, người vận hành máy, học giả và thương nhân khoáng sản sống tại các trại bậc thang. Họ làm việc theo tiếng chuông ca, luôn kiểm tra đèn và dây an toàn trước khi vào mỏ. Các gia đình thường giữ một mảnh pha lê thô của người thân như lời chúc trở về an toàn.</p>
+<p>Khu vực đem lại nguồn nguyên liệu lớn cho Peace nhưng người địa phương chịu nhiều rủi ro nhất. Việc Công Hội thúc ép sản lượng trong thời kỳ khủng hoảng khiến các quy tắc an toàn bị bỏ qua và làm lộ ra bí mật của Hiệp Ước.</p>
+</article><article class="info-card"><h3>Văn hóa và kiến trúc</h3><ul>
+<li><strong>Nhà ở:</strong> Nhà đá bám theo sườn núi, gia cố bằng khung gỗ và dây cáp.</li>
+<li><strong>Trang phục:</strong> Khăn che bụi, đèn đội đầu, găng dày và đồ có nhiều móc.</li>
+<li><strong>Thức ăn:</strong> Súp đặc, bánh cứng, thịt hun khói và trà nóng.</li>
+<li><strong>Phong tục:</strong> Gõ ba lần vào vách trước khi bắt đầu ca; để lại đèn sáng cho người chưa trở về.</li>
+<li><strong>Điều cấm kỵ:</strong> Mang pha lê còn “hát” ra khỏi tàn tích cổ.</li>
+</ul>
+</article><article class="info-card wide"><h3>Background và biểu hiện trong gameplay</h3><ul>
+<li><strong>Background ngoài Hồi:</strong> Hẻm núi khổng lồ với các cầu treo và mạch pha lê sáng xuyên vách đá.</li>
+<li><strong>Nền chiến đấu 1:</strong> Miệng hẻm và trại khai thác.</li>
+<li><strong>Nền chiến đấu 2:</strong> Mỏ tối với đường xe goòng.</li>
+<li><strong>Nền chiến đấu 3:</strong> Tàn tích rune và kho lưu trữ cổ.</li>
+<li><strong>Nền chiến đấu 4:</strong> Buồng lõi nơi Titan Golem thức tỉnh.</li>
+<li><strong>Biến đổi theo tiến trình:</strong> Đèn mỏ tắt dần, khe nứt lan rộng, pha lê chuyển từ xanh sang tím đen và tiếng bước chân Titan ngày càng rõ.</li>
+<li><strong>Nguy hiểm môi trường:</strong> Hầm sập, thiếu sáng, tinh thể phản xạ phép, xe goòng mất kiểm soát.</li>
+</ul>
+</article><article class="info-card wide"><h3>Liên kết cốt truyện</h3><p>Hẻm Núi cho thấy nền hòa bình của Peace được duy trì bằng tài nguyên, lao động và bí mật bị chôn vùi. Đây là nơi Frieran đối diện ký ức cũ và người chơi nhận ra chu kỳ Ma Vương là một hệ thống được tạo ra, không phải quy luật tự nhiên.</p>
+<hr>
+</article></section><section class="bestiary">
+    <div class="section-head"><div><span class="kicker">Quần thể sinh vật</span><h2>Bestiary của Hẻm Núi Pha Lê</h2><p>Ảnh đã được tách nền; mỗi mob được đặt cạnh mô tả sinh thái và vai trò trong vùng.</p></div><span class="count">5 loài / đơn vị</span></div>
+    <div class="mob-grid"><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/2/2-01.png" alt="Sói Pha Lê"></div><div class="mob-body"><div class="mob-meta"><span>2-01</span><b>Thú săn mồi</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h2_m01/mob-2-01" target="_top">Sói Pha Lê</a></h3><p>Sói sống gần các mạch tinh thể, lông và móng dần kết tinh sau nhiều thế hệ. Chúng hấp thụ ánh sáng để định hướng trong hang và bảo vệ lãnh thổ mạnh hơn sói thường. Khi tà khí lan tới, các tinh thể trên lưng phát sáng bất thường và làm chúng đau đớn.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/2/2-02.png" alt="Dơi Pha Lê"></div><div class="mob-body"><div class="mob-meta"><span>2-02</span><b>Sinh vật hang động</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h2_m01/mob-2-02" target="_top">Dơi Pha Lê</a></h3><p>Dơi ăn côn trùng sống trong hang, cánh mỏng có tinh thể giúp khuếch đại tiếng vang. Chúng thường báo trước khu vực sắp sập bằng việc bay ra hàng loạt. Khi bị kích động, âm thanh của cả đàn có thể làm choáng tổ đội.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/2/2-03.png" alt="Nhện đá mỏ sâu"></div><div class="mob-body"><div class="mob-meta"><span>2-03</span><b>Sinh vật hang động</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h2_m01/mob-2-03" target="_top">Nhện đá mỏ sâu</a></h3><p>Nhện dùng đá vụn và khoáng chất phủ lên lưng để ngụy trang. Chúng làm tổ tại đường hầm bị bỏ hoang, ăn chuột mỏ và côn trùng. Tơ nhện giữ đất đá khá tốt, vì vậy tiêu diệt toàn bộ tổ có thể khiến hầm mất ổn định.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/2/2-04.png" alt="Thợ mỏ tha hóa"></div><div class="mob-body"><div class="mob-meta"><span>2-04</span><b>Đơn vị tha hóa</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h2_m01/mob-2-04" target="_top">Thợ mỏ tha hóa</a></h3><p>Những thợ mỏ bị mắc kẹt và ràng buộc với mệnh lệnh cuối cùng của khu mỏ. Họ vẫn mang cuốc, đèn và trang phục lao động, liên tục lặp lại ca làm việc dù không còn nhận thức đầy đủ. Họ là bằng chứng sống về việc Peace ưu tiên tài nguyên hơn con người.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/2/2-05.png" alt="Titan Golem Khổng Lồ"></div><div class="mob-body"><div class="mob-meta"><span>2-05</span><b>Boss khu vực</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h2_m01/mob-2-05" target="_top">Titan Golem Khổng Lồ</a></h3><p>Cỗ máy cổ bằng đá và pha lê, được tạo ra để bảo vệ kho lưu trữ Hiệp Ước. Titan không độc ác; nó chỉ phân loại mọi kẻ không có quyền truy cập là mối đe dọa. Các mạch sáng trên thân thể hiện trạng thái và giúp người chơi nhận biết giai đoạn chiến đấu.</p></div></article></div>
+  </section></section><section class="panel" id="region-3" style="--accent:#45d4cf"><section class="region-hero" style="--accent:#45d4cf">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/region-3.png" alt="Biểu tượng Bờ Biển San Hô"></div><div class="hero-copy"><span class="kicker">Hồ sơ khu vực · Hồi 3</span><h1>Bờ Biển San Hô</h1><p>Cửa ngõ hàng hải của Peace</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Đại Thủy Quái Karkos</b></div>
+  </section>
+  <section class="facts" style="--accent:#45d4cf">
+    <article><span>Vai trò cốt truyện</span><b>Tarot đối diện hậu quả quá khứ</b></article><article><span>Kinh tế / tài nguyên</span><b>Vận tải biển, cá, muối và hàng nhập</b></article><article><span>Cộng đồng</span><b>Cảng, nhà sàn và tàu buôn</b></article><article><span>Khủng hoảng</span><b>Khai thác trái phép phá hệ biển</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc khu vực</h3><p>Bờ Biển San Hô là cửa ngõ hàng hải của Peace. Người dân sống theo thủy triều, gió biển và lịch tàu. Đây là vùng có văn hóa cởi mở nhất vì thủy thủ, thương nhân và người từ nhiều nơi liên tục gặp gỡ.</p>
+</article><article class="info-card"><h3>Cảnh quan và khí hậu</h3><ul>
+<li>Cảng gỗ, nhà sàn, bãi đá, đảo nhỏ, rạn san hô và vùng nước phát sáng.</li>
+<li>Ban ngày nhiều màu xanh ngọc và cam; đêm có sinh vật biển phát quang.</li>
+<li>Thời tiết thay đổi nhanh, từ biển lặng sang bão lớn.</li>
+<li>Xa bờ là đền chìm và khu khai thác bí mật của hạm đội Peace.</li>
+</ul>
+</article><article class="info-card"><h3>Cư dân, sinh kế và lối sống</h3><p>Người dân làm thủy thủ, đóng tàu, đánh cá, lặn tìm vật liệu, buôn bán và dẫn đường. Một ngày bắt đầu theo thủy triều chứ không theo giờ cố định. Trẻ em học bơi và đọc cờ hiệu trước khi học chữ đầy đủ.</p>
+<p>Mọi người quen với rủi ro và thường chia lợi nhuận theo chuyến tàu. Khi tàu không trở về, cộng đồng treo đèn tại cầu cảng trong ba đêm. Họ có thái độ thực tế với sinh vật biển: loài nào nguy hiểm cần tránh, loài nào có thể hợp tác và loài nào phải được bảo vệ để rạn san hô tồn tại.</p>
+</article><article class="info-card"><h3>Văn hóa và kiến trúc</h3><ul>
+<li><strong>Nhà ở:</strong> Nhà sàn gỗ, mái cong chống gió, dây neo và vỏ sò trang trí.</li>
+<li><strong>Thức ăn:</strong> Cá nướng, canh rong, sò hấp, bánh muối và trái cây chua.</li>
+<li><strong>Trang phục:</strong> Vải nhẹ, khăn đầu, áo chống nước và nhiều túi buộc kín.</li>
+<li><strong>Phong tục:</strong> Gõ vào thân tàu trước khi rời cảng; không huýt sáo khi biển lặng vì bị xem là gọi bão.</li>
+<li><strong>Lễ hội:</strong> Tháng San Hô, khi tàu được trang trí và người dân sửa rạn gần bờ.</li>
+</ul>
+</article><article class="info-card wide"><h3>Background và biểu hiện trong gameplay</h3><ul>
+<li><strong>Background ngoài Hồi:</strong> Cảng San Hô đông đúc, tàu lớn hướng ra vùng biển có bóng Karkos.</li>
+<li><strong>Nền chiến đấu 1:</strong> Cầu cảng và boong tàu.</li>
+<li><strong>Nền chiến đấu 2:</strong> Bãi đá san hô lúc thủy triều thấp.</li>
+<li><strong>Nền chiến đấu 3:</strong> Vùng nước sứa điện phát sáng.</li>
+<li><strong>Nền chiến đấu 4:</strong> Boong tàu giữa bão và xúc tu Karkos.</li>
+<li><strong>Biến đổi theo tiến trình:</strong> Cảng vui vẻ chuyển sang tàu hỏng, lưới rách và giấy báo mất tích; nước biển xuất hiện mảnh pha lê và thiết bị khai thác của Peace.</li>
+<li><strong>Sự kiện phù hợp:</strong> Sửa tàu, cứu thợ lặn, chọn đi xuyên bão hay vòng xa, trả sinh vật mắc lưới về biển.</li>
+</ul>
+</article><article class="info-card wide"><h3>Liên kết cốt truyện</h3><p>Bờ Biển San Hô cho thấy sự thịnh vượng của Peace đang dựa trên hoạt động khai thác mà người dân không được biết. Tarot phải đối diện với hậu quả từ những mệnh lệnh mình từng ký và lần đầu tự lựa chọn thay vì giao quyết định cho vận mệnh.</p>
+<hr>
+</article></section><section class="bestiary">
+    <div class="section-head"><div><span class="kicker">Quần thể sinh vật</span><h2>Bestiary của Bờ Biển San Hô</h2><p>Ảnh đã được tách nền; mỗi mob được đặt cạnh mô tả sinh thái và vai trò trong vùng.</p></div><span class="count">5 loài / đơn vị</span></div>
+    <div class="mob-grid"><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/3/3-01.png" alt="Cua hải tặc"></div><div class="mob-body"><div class="mob-meta"><span>3-01</span><b>Đơn vị cận chiến</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h3_m01/mob-3-01" target="_top">Cua hải tặc</a></h3><p>Cua thông minh thu gom đồ từ xác tàu và đeo chúng như trang bị. Chúng sống thành bầy quanh bãi đá, bảo vệ kho vật sáng và tấn công bất kỳ ai mang biểu tượng hạm đội Peace. Hình dáng vui nhộn che giấu khả năng phối hợp rất tốt.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/3/3-02.png" alt="Cá mập chột mắt"></div><div class="mob-body"><div class="mob-meta"><span>3-02</span><b>Thú săn mồi</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h3_m01/mob-3-02" target="_top">Cá mập chột mắt</a></h3><p>Cá mập lớn từng bị thương bởi thiết bị khai thác nên đặc biệt hung dữ với tàu. Nó tuần tra vùng biển sâu và thường chỉ xuất hiện khi có máu hoặc tiếng máy khoan. Vết sẹo và mắt che giúp kể lại tác động của con người lên vùng biển.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/3/3-03.png" alt="Bạch tuộc nhỏ"></div><div class="mob-body"><div class="mob-meta"><span>3-03</span><b>Sinh vật rạn san hô</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h3_m01/mob-3-03" target="_top">Bạch tuộc nhỏ</a></h3><p>Sinh vật tò mò sống trong rạn, thường lấy đồ vật nhỏ để trang trí nơi ở. Khi Karkos bị kích động, chúng tập trung quanh tàu và phun mực làm rối đội hình. Ngoài chiến đấu, người chơi có thể đổi đồ sáng lấy vật phẩm chúng nhặt được.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/3/3-04.png" alt="Sứa điện"></div><div class="mob-body"><div class="mob-meta"><span>3-04</span><b>Sinh vật nguyên tố</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h3_m01/mob-3-04" target="_top">Sứa điện</a></h3><p>Sứa phát điện di chuyển theo dòng nước và giúp cung cấp năng lượng tự nhiên cho nhiều sinh vật biển. Thiết bị khai thác làm dòng chảy thay đổi, khiến đàn sứa trôi vào tuyến tàu. Ánh sáng xanh vàng báo trước đòn điện diện rộng.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/3/3-05.png" alt="Đại Thủy Quái Karkos"></div><div class="mob-body"><div class="mob-meta"><span>3-05</span><b>Boss khu vực</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h3_m01/mob-3-05" target="_top">Đại Thủy Quái Karkos</a></h3><p>Karkos là sinh vật cổ đại bảo vệ đền chìm và rạn san hô. Nó trang trí cơ thể bằng san hô, vỏ sò và di vật của ngôi đền. Karkos tấn công tàu không vì đói mà vì hạm đội Peace đã liên tục phá nơi nó bảo vệ.</p></div></article></div>
+  </section></section><section class="panel" id="region-4" style="--accent:#a78be8"><section class="region-hero" style="--accent:#a78be8">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/region-4.png" alt="Biểu tượng Rừng Thông Chạng Vạng"></div><div class="hero-copy"><span class="kicker">Hồ sơ khu vực · Hồi 4</span><h1>Rừng Thông Chạng Vạng</h1><p>Mạng lưới sống cổ gần lãnh địa Ma Vương</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Hắc Long Ignis</b></div>
+  </section>
+  <section class="facts" style="--accent:#a78be8">
+    <article><span>Vai trò cốt truyện</span><b>Elaine gia nhập và tạo phương án mới</b></article><article><span>Kinh tế / tài nguyên</span><b>Thảo dược và cân bằng sinh thái</b></article><article><span>Cộng đồng</span><b>Cộng đồng nhỏ sống cùng khu rừng</b></article><article><span>Khủng hoảng</span><b>Tà khí làm hệ sinh thái mất cân bằng</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc khu vực</h3><p>Rừng Thông Chạng Vạng là khu sinh thái cổ nằm gần lãnh địa Ma Vương. Ánh sáng trong rừng luôn giống thời điểm ngay trước khi đêm xuống. Đây không phải vùng do con người quản lý mà là mạng lưới sống gồm cây cổ, tinh linh, thú rừng và các cộng đồng nhỏ tôn trọng quy luật tự nhiên.</p>
+</article><article class="info-card"><h3>Cảnh quan và khí hậu</h3><ul>
+<li>Thông cao, sương dày, rễ cây nổi, nấm phát sáng và các khoảng rừng có ánh tím.</li>
+<li>Khí hậu ẩm, lạnh; ánh sáng thay đổi chậm khiến người ngoài dễ mất cảm giác thời gian.</li>
+<li>Rễ Cây Nguồn kết nối nhiều phần của rừng và truyền tín hiệu như một hệ thần kinh.</li>
+<li>Tà khí không chỉ làm sinh vật hung dữ mà còn tạo các vùng cây cháy đen, nấm độc và bóng tối sống.</li>
+</ul>
+</article><article class="info-card"><h3>Cư dân, sinh kế và lối sống</h3><p>Rừng không có đô thị lớn. Người hái thuốc, kiểm lâm, tinh linh và vài cộng đồng sống tại rìa rừng chỉ lấy đủ thứ cần thiết. Họ di chuyển theo lối mòn được cây cho phép mở ra, sử dụng gỗ rụng thay vì chặt cây sống và đánh dấu đường bằng chuông gió.</p>
+<p>Cuộc sống dựa vào quan sát: màu nấm, hướng chim bay, độ ẩm của rêu và tiếng rễ chuyển động. Người dân không xem bóng tối là hoàn toàn xấu; mục rữa, nấm và đất đen đều cần thiết để rừng tái sinh.</p>
+</article><article class="info-card"><h3>Văn hóa và kiến trúc</h3><ul>
+<li><strong>Nhà ở:</strong> Lều trên rễ lớn, nhà cây và nơi trú ẩn kết từ cành rụng.</li>
+<li><strong>Thức ăn:</strong> Nấm ăn được, quả rừng, trà lá thông, mật và rau củ nhỏ.</li>
+<li><strong>Trang phục:</strong> Vải tối màu, áo choàng chống sương, dây đeo thảo dược.</li>
+<li><strong>Phong tục:</strong> Xin phép trước khi lấy vật từ rừng; để lại hạt giống hoặc nước sạch như sự trao đổi.</li>
+<li><strong>Điều cấm kỵ:</strong> Đốt lửa lớn, phá tổ, chặt Cây Nguồn hoặc giết sinh vật chỉ vì chúng nhiễm tà.</li>
+</ul>
+</article><article class="info-card wide"><h3>Background và biểu hiện trong gameplay</h3><ul>
+<li><strong>Background ngoài Hồi:</strong> Rừng thông tím xanh, Cây Nguồn ở xa và bóng Ignis trên bầu trời.</li>
+<li><strong>Nền chiến đấu 1:</strong> Bìa rừng trong sương.</li>
+<li><strong>Nền chiến đấu 2:</strong> Mạng rễ và vùng nấm độc.</li>
+<li><strong>Nền chiến đấu 3:</strong> Cây Nguồn cùng các mạch sáng.</li>
+<li><strong>Nền chiến đấu 4:</strong> Đường núi cháy âm ỉ và Long Sào.</li>
+<li><strong>Biến đổi theo tiến trình:</strong> Sương chuyển từ trắng sang tím đen, thú rừng xuất hiện vết tà khí; sau khi Elaine học cách chuyển hóa, nấm và chồi non mọc trên thân cây cháy.</li>
+<li><strong>Nguy hiểm môi trường:</strong> Sương che tầm nhìn, rễ đổi đường, bào tử độc, hắc hỏa và ảo ảnh.</li>
+</ul>
+</article><article class="info-card wide"><h3>Liên kết cốt truyện</h3><p>Rừng Chạng Vạng dạy Elaine và người chơi rằng chữa lành không đồng nghĩa xóa bỏ mọi thứ đen tối. Hệ sinh thái cần chuyển hóa tổn thương thành điều có thể nuôi dưỡng sự sống, tạo nền tảng cho phương án thay thế Hiệp Ước Trăm Năm.</p>
+<hr>
+</article></section><section class="bestiary">
+    <div class="section-head"><div><span class="kicker">Quần thể sinh vật</span><h2>Bestiary của Rừng Thông Chạng Vạng</h2><p>Ảnh đã được tách nền; mỗi mob được đặt cạnh mô tả sinh thái và vai trò trong vùng.</p></div><span class="count">6 loài / đơn vị</span></div>
+    <div class="mob-grid"><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/4/4-01.png" alt="Đại bàng Chạng Vạng"></div><div class="mob-body"><div class="mob-meta"><span>4-01</span><b>Sinh vật tầng cao</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h4_m01/mob-4-01" target="_top">Đại bàng Chạng Vạng</a></h3><p>Chim săn mồi làm tổ trên tầng cây cao và giúp rừng phát hiện đám cháy, sinh vật lạ. Khi tà khí lan rộng, chúng trở nên bảo vệ lãnh thổ quá mức. Tiếng cánh và lá rơi từ trên cao là dấu hiệu cảnh báo.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/4/4-02.png" alt="Báo đen nhiễm tà"></div><div class="mob-body"><div class="mob-meta"><span>4-02</span><b>Thú săn mồi</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h4_m01/mob-4-02" target="_top">Báo đen nhiễm tà</a></h3><p>Loài săn mồi giữ cân bằng số lượng thú ăn cỏ, có khả năng di chuyển gần như không gây tiếng động. Các đốm đen lan rộng và mắt phát sáng cho thấy nó đang chịu ảnh hưởng của tà khí. Thay vì bị tiêu diệt hoàn toàn, một số sự kiện cho phép người chơi thanh tẩy và thả nó về rừng.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/4/4-03.png" alt="Nấm độc cuồng nộ"></div><div class="mob-body"><div class="mob-meta"><span>4-03</span><b>Sinh vật phân hủy</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h4_m01/mob-4-03" target="_top">Nấm độc cuồng nộ</a></h3><p>Nấm vốn phân hủy cây chết và tạo đất mới, nhưng hấp thụ tà khí quá mức sẽ di chuyển và phun bào tử độc. Chúng chứng minh bóng tối vẫn có vai trò trong hệ sinh thái, chỉ trở thành nguy hiểm khi mất cân bằng.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/4/4-04.png" alt="Tê giác gác rừng"></div><div class="mob-body"><div class="mob-meta"><span>4-04</span><b>Hộ vệ bản địa</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h4_m01/mob-4-04" target="_top">Tê giác gác rừng</a></h3><p>Sinh vật ăn cỏ lớn dùng sừng dọn cây đổ và mở lối cho thú nhỏ. Lớp giáp thô và rìu gỗ cho cảm giác như một chiến binh, nhưng bản chất nó chỉ bảo vệ vùng sinh sản. Tà khí khiến nó nhầm mọi người đi qua là kẻ phá rừng.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/4/4-05.png" alt="Hộ vệ Cây Nguồn"></div><div class="mob-body"><div class="mob-meta"><span>4-05</span><b>Hộ vệ tinh nhuệ</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h4_m01/mob-4-05" target="_top">Hộ vệ Cây Nguồn</a></h3><p>Thực thể hình thành từ gỗ, rễ và ý chí của khu rừng. Hộ vệ thức tỉnh khi Cây Nguồn gặp nguy hiểm, điều khiển rễ và triệu hồi mầm cây. Khi nhiễm tà, nó vẫn cố bảo vệ rừng nhưng không còn phân biệt được đồng minh.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/4/4-06.png" alt="Hắc Long Ignis"></div><div class="mob-body"><div class="mob-meta"><span>4-06</span><b>Boss khu vực</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h4_m01/mob-4-06" target="_top">Hắc Long Ignis</a></h3><p>Ignis là sinh vật bảo vệ con đường tới lâu đài và đã tự hấp thụ tà khí nhiều năm để ngăn rừng bị hủy hoại. Vảy của nó cháy bằng hắc hỏa, nhưng giữa các khe vảy vẫn có ánh sáng đỏ cam của sinh mệnh. Ignis là Boss cần được cứu khỏi mất kiểm soát, không phải nguồn gốc căn bệnh.</p></div></article></div>
+  </section></section><section class="panel" id="region-5" style="--accent:#ed7486"><section class="region-hero" style="--accent:#ed7486">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/region-5.png" alt="Biểu tượng Lâu Đài Ma Vương"></div><div class="hero-copy"><span class="kicker">Hồ sơ khu vực · Hồi 5</span><h1>Lâu Đài Ma Vương</h1><p>Nhà tù và cỗ máy phong ấn khổng lồ</p></div>
+    <div class="hero-boss"><span>Cao trào / Boss</span><b>Đại Ma Vương Vuu</b></div>
+  </section>
+  <section class="facts" style="--accent:#ed7486">
+    <article><span>Vai trò cốt truyện</span><b>Phá vỡ Hiệp Ước Trăm Năm</b></article><article><span>Kinh tế / tài nguyên</span><b>Không có kinh tế bình thường</b></article><article><span>Cộng đồng</span><b>Quỷ vật duy trì nghi thức lặp lại</b></article><article><span>Khủng hoảng</span><b>Phong ấn cưỡng ép Vuu hủy diệt</b></article>
+  </section><section class="info-grid"><article class="info-card"><h3>Bản sắc khu vực</h3><p>Lâu Đài Ma Vương được người Peace mô tả như căn cứ của quân xâm lược, nhưng thực chất là một nhà tù và cỗ máy phong ấn khổng lồ. Nơi đây chứa hồ sơ của mười Ma Vương trước, các phòng nghi lễ, cơ chế phòng thủ tự động và những sinh vật bị buộc phải duy trì vai trò qua nhiều thế hệ.</p>
+</article><article class="info-card"><h3>Cảnh quan và khí hậu</h3><ul>
+<li>Lâu đài đá đen nằm giữa vùng đất ít cây, bầu trời đỏ tím và các dòng năng lượng chạy dưới đất.</li>
+<li>Bên trong có hành lang quá rộng, tượng của các “anh hùng”, thư viện hồ sơ, phòng trà và phòng ngai.</li>
+<li>Ánh sáng đến từ lửa ma thuật và các mạch phong ấn, không có chu kỳ ngày đêm rõ ràng.</li>
+<li>Kiến trúc càng vào sâu càng bộc lộ hai lớp: bên ngoài đáng sợ để phù hợp truyền thuyết, bên trong cô độc và được duy trì như một nơi ở bắt buộc.</li>
+</ul>
+</article><article class="info-card"><h3>Cư dân và “lối sống” trong lâu đài</h3><p>Không có xã hội bình thường, nhưng các sinh vật trong lâu đài vẫn có một nhịp sống kỳ lạ. Quỷ nhỏ sửa đèn, mang hồ sơ và tập các tư thế đe dọa. Quỷ pháp sư duy trì phong ấn. Giáp sống tuần tra theo lộ trình không thay đổi. Vuu đọc biên niên sử, luyện diễn văn Ma Vương, uống trà và ghi chép những thứ mình chưa từng được nhìn thấy ngoài lâu đài.</p>
+<p>Nhiều sinh vật không muốn xâm lược Peace; chúng chỉ chưa từng được trao lựa chọn nào khác ngoài vai trò “quân đội Ma Vương”.</p>
+</article><article class="info-card"><h3>Văn hóa và kiến trúc</h3><ul>
+<li><strong>Kiến trúc:</strong> Cột đá cao, cửa nặng, kính màu đỏ, biểu tượng phong ấn và phòng được thiết kế để gây sợ hãi.</li>
+<li><strong>Không gian đời thường:</strong> Bếp ít sử dụng, phòng trà sạch bất ngờ, kho sách và hàng trăm lá thư chưa gửi.</li>
+<li><strong>Nghi thức:</strong> Mỗi sinh vật đều có lời thoại, vị trí và nhiệm vụ được ghi sẵn như đang diễn một vở kịch lặp lại.</li>
+<li><strong>Điều cấm kỵ:</strong> Rời khỏi lâu đài, sửa nội dung Hiệp Ước hoặc để Ma Vương biết quá nhiều về thế giới bên ngoài.</li>
+</ul>
+</article><article class="info-card wide"><h3>Background và biểu hiện trong gameplay</h3><ul>
+<li><strong>Background ngoài Hồi:</strong> Lâu đài đen dưới bầu trời đỏ, nhưng một cửa sổ nhỏ có ánh đèn ấm.</li>
+<li><strong>Nền chiến đấu 1:</strong> Cổng quỷ và cầu xích.</li>
+<li><strong>Nền chiến đấu 2:</strong> Hành lang ma pháp và thư viện hồ sơ.</li>
+<li><strong>Nền chiến đấu 3:</strong> Điện kỵ sĩ, giáp và tượng anh hùng.</li>
+<li><strong>Nền chiến đấu 4:</strong> Phòng ngai cùng lõi Hiệp Ước.</li>
+<li><strong>Biến đổi theo tiến trình:</strong> Hình ảnh ban đầu củng cố cảm giác “sào huyệt quỷ”; càng đi sâu, người chơi thấy phòng trà, thư cầu cứu và bằng chứng các Ma Vương trước đều bị giam giữ.</li>
+<li><strong>Nguy hiểm môi trường:</strong> Phòng đổi vị trí, ảo ảnh, phong ấn cưỡng ép, hắc khí sống và đợt quỷ triệu hồi.</li>
+</ul>
+</article><article class="info-card wide"><h3>Liên kết cốt truyện</h3><p>Lâu Đài đảo ngược hoàn toàn kỳ vọng của người chơi. Đích đến được xem là nguồn gốc của mọi vấn đề thực ra là nơi lưu giữ hậu quả của cách Peace duy trì hòa bình. Mục tiêu cuối không còn là tiêu diệt Vuu mà là phá vỡ vai trò đã cưỡng ép tất cả cùng lặp lại.</p>
+<hr>
+</article></section><section class="bestiary">
+    <div class="section-head"><div><span class="kicker">Quần thể sinh vật</span><h2>Bestiary của Lâu Đài Ma Vương</h2><p>Ảnh đã được tách nền; mỗi mob được đặt cạnh mô tả sinh thái và vai trò trong vùng.</p></div><span class="count">6 loài / đơn vị</span></div>
+    <div class="mob-grid"><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/5/5-01.png" alt="Quỷ nhỏ cận chiến"></div><div class="mob-body"><div class="mob-meta"><span>5-01</span><b>Đơn vị cận chiến</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h5_m01/mob-5-01" target="_top">Quỷ nhỏ cận chiến</a></h3><p>Quỷ trẻ được giao nhiệm vụ tuần tra, dùng đinh ba nhỏ và cố tỏ ra đáng sợ. Chúng thường làm theo lệnh vì chưa từng biết cách sống khác. Một số sự kiện có thể khiến chúng bỏ vũ khí nếu được bảo đảm không bị tiêu diệt.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/5/5-02.png" alt="Quỷ cung thủ"></div><div class="mob-body"><div class="mob-meta"><span>5-02</span><b>Đơn vị tầm xa</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h5_m01/mob-5-02" target="_top">Quỷ cung thủ</a></h3><p>Lực lượng canh gác các hành lang dài và cửa sổ cao. Chúng có thị lực tốt, giao tiếp bằng tiếng huýt và thích khắc dấu lên tên. Trong trận chiến, chúng buộc tổ đội phải xử lý kẻ địch tuyến sau.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/5/5-03.png" alt="Chó săn địa ngục"></div><div class="mob-body"><div class="mob-meta"><span>5-03</span><b>Thú canh cổng</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h5_m01/mob-5-03" target="_top">Chó săn địa ngục</a></h3><p>Sinh vật canh cổng có lông cháy và khả năng lần theo hắc khí. Chúng trung thành với người chăm sóc hơn là Hiệp Ước. Dù nguy hiểm, hành vi của chúng vẫn giống chó bảo vệ lãnh thổ và có thể bị đánh lạc hướng bằng mùi thức ăn.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/5/5-04.png" alt="Quỷ pháp sư"></div><div class="mob-body"><div class="mob-meta"><span>5-04</span><b>Pháp sư hỗ trợ</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h5_m01/mob-5-04" target="_top">Quỷ pháp sư</a></h3><p>Các pháp sư duy trì hệ thống phong ấn bằng phép lửa tím. Họ hiểu nhiều phần của Hiệp Ước nhưng không có quyền dừng nó. Một số người sợ sự sụp đổ của lâu đài hơn là trung thành với Vuu.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/5/5-05.png" alt="Kỵ sĩ không đầu"></div><div class="mob-body"><div class="mob-meta"><span>5-05</span><b>Hộ vệ tinh nhuệ</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h5_m01/mob-5-05" target="_top">Kỵ sĩ không đầu</a></h3><p>Bộ giáp sống được tạo từ ký ức của một hộ vệ từng phục vụ Ma Vương đời trước. Ngọn lửa tím thay cho đầu giúp nó nhận biết mệnh lệnh nhưng không thể nhớ tên mình. Trận chiến với kỵ sĩ mang tính bi kịch hơn là đối đầu với một kẻ ác.</p></div></article><article class="mob-card"><div class="mob-visual"><img loading="lazy" src="world-atlas-assets/mobs/5/5-06.png" alt="Đại Ma Vương Vuu"></div><div class="mob-body"><div class="mob-meta"><span>5-06</span><b>Boss cuối</b></div><h3><a href="Hero-Vanguard-Project-Hub.html#codex/h5_m01/mob-5-06" target="_top">Đại Ma Vương Vuu</a></h3><p>Vuu có ngoại hình đúng với mọi mô tả đáng sợ của Peace: sừng lớn, cánh, quyền trượng và hắc hỏa. Tuy vậy, phần lớn dáng vẻ và lời nói đều được hắn học từ biên niên sử để hoàn thành vai trò đã được định sẵn. Vuu là vật chứa cảm xúc tiêu cực của toàn lục địa, vừa có sức mạnh hủy diệt vừa là người bị tổn thương nhiều nhất bởi hệ thống.</p></div></article></div>
+  </section></section><section class="panel" id="system" style="--accent:#ffd36a"><section class="region-hero" style="--accent:#ffd36a">
+    <div class="region-icon"><img src="world-atlas-assets/region-icons/system.png" alt="Biểu tượng Khung thiết kế"></div><div class="hero-copy"><span class="kicker">Hệ thống thiết kế</span><h1>Khung thiết kế</h1><p>Tiêu chuẩn map và liên kết toàn thế giới</p></div>
+    <div class="hero-boss"><span>Mục đích</span><b>Dùng cho báo cáo và triển khai game</b></div>
+  </section>
+  <section class="facts" style="--accent:#ffd36a">
+    <article><span>Vai trò cốt truyện</span><b>Kiểm tra độ hoàn thiện</b></article><article><span>Kinh tế / tài nguyên</span><b>Liên kết chuỗi cung ứng giữa các vùng</b></article><article><span>Cộng đồng</span><b>Quy tắc trình bày thống nhất</b></article><article><span>Khủng hoảng</span><b>Theo dõi tác động của chu kỳ Ma Vương</b></article>
+  </section><section class="info-grid"><article class="info-card wide"><h3>1. Những chi tiết một khu vực hoàn chỉnh cần có</h3><p>Báo cáo hiện tại đã xác định được vai trò kinh tế, quái vật chính, Boss và vai trò cốt truyện của từng vùng. Để mỗi nơi trở thành một khu vực có đời sống riêng, thiết kế cần bổ sung thêm:</p>
+<ol>
+<li><strong>Vị trí và kết nối địa lý:</strong> Khu vực nằm ở đâu, nối với vùng nào, người dân mất bao lâu để đi qua.</li>
+<li><strong>Khí hậu và nhịp thời gian:</strong> Thời tiết, ánh sáng, mùa hoạt động mạnh nhất và sự thay đổi ngày - đêm.</li>
+<li><strong>Địa hình nhận diện:</strong> Đồng cỏ, hẻm núi, cảng biển, rừng, công trình hoặc địa danh nhìn thấy là nhận ra ngay.</li>
+<li><strong>Cư dân và cộng đồng:</strong> Ai sinh sống tại đây, mật độ dân cư và mối quan hệ giữa người, quái vật, tinh linh.</li>
+<li><strong>Sinh kế và kinh tế:</strong> Người dân kiếm sống bằng gì, xuất khẩu gì, phụ thuộc vào vùng nào.</li>
+<li><strong>Lối sống hằng ngày:</strong> Thời gian thức dậy, làm việc, nghỉ ngơi, cách đi lại và cách ứng phó với nguy hiểm.</li>
+<li><strong>Văn hóa:</strong> Trang phục, thức ăn, lễ hội, phong tục, niềm tin, cách chào hỏi và điều cấm kỵ.</li>
+<li><strong>Kiến trúc và vật liệu:</strong> Hình dáng nhà cửa, vật liệu xây dựng và cách công trình thích nghi với môi trường.</li>
+<li><strong>Quản lý và luật lệ:</strong> Ai điều hành vùng đất, vai trò của Vương quốc Peace và Công Hội Mạo Hiểm Giả.</li>
+<li><strong>Hệ sinh thái:</strong> Thực vật, sinh vật hiền lành, mob săn mồi, chuỗi thức ăn và vai trò tự nhiên của chúng.</li>
+<li><strong>Hành vi mob:</strong> Nơi ở, tập tính, thời gian hoạt động, dấu hiệu cảnh báo và lý do chúng tấn công.</li>
+<li><strong>Nguy hiểm môi trường:</strong> Gió mạnh, sạt lở, thủy triều, sương tà, hắc khí hoặc bẫy cổ.</li>
+<li><strong>Lịch sử để lại trong cảnh vật:</strong> Tàn tích, bia đá, công trình bỏ hoang và bằng chứng về Hiệp Ước Trăm Năm.</li>
+<li><strong>Tình trạng trước và trong cốt truyện:</strong> Cuộc sống bình thường trông ra sao và chu kỳ Ma Vương đã làm thay đổi điều gì.</li>
+<li><strong>Background ngoài map:</strong> Tranh đại diện tổng quan của khu vực trên màn hình chọn Hồi.</li>
+<li><strong>Background trong trận:</strong> Các nền chiến đấu được luân phiên theo ngày và mức độ nguy hiểm.</li>
+<li><strong>Âm thanh và màu sắc:</strong> Nhạc nền, âm thanh môi trường, bảng màu và hiệu ứng chuyển cảnh.</li>
+<li><strong>Sự kiện ngẫu nhiên:</strong> Gặp cư dân, thương nhân, Công Hội, quái vật không thù địch, kho báu hoặc lựa chọn đạo đức.</li>
+<li><strong>Tài nguyên và vật phẩm rơi:</strong> Vật liệu riêng của vùng dùng để chế tạo, nâng cấp hoặc kể chuyện.</li>
+<li><strong>Vai trò trong hành trình:</strong> Điều người chơi học được, nhân vật nào phát triển và bí mật nào được hé lộ tại đây.</li>
+</ol>
+<hr>
+</article><article class="info-card wide"><h3>9. Mối liên kết kinh tế và đời sống giữa các vùng</h3><table>
+<thead>
+<tr>
+<th>Khu vực</th>
+<th>Cung cấp cho Ionie</th>
+<th>Phụ thuộc vào</th>
+<th>Khủng hoảng tạo ra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Breeze</td>
+<td>Nông sản, lương thực, gia súc</td>
+<td>Đường vận chuyển và dụng cụ</td>
+<td>Thiếu lương thực, dân ngoại ô bị bỏ quên</td>
+</tr>
+<tr>
+<td>Thảo Nguyên Gió Hát</td>
+<td>Tuyến đường bộ, gia súc, trao đổi hàng</td>
+<td>Trạm nước và thỏa thuận đường đi</td>
+<td>Đứt chuỗi vận chuyển, xung đột người - Goblin</td>
+</tr>
+<tr>
+<td>Hẻm Núi Pha Lê</td>
+<td>Khoáng sản, pha lê, vật liệu trang bị</td>
+<td>Lương thực và an toàn lao động</td>
+<td>Thiếu trang bị, lộ bí mật khai thác</td>
+</tr>
+<tr>
+<td>Bờ Biển San Hô</td>
+<td>Hàng hải, cá, muối, hàng nhập</td>
+<td>Tàu, thời tiết và rạn san hô</td>
+<td>Đình trệ giao thương, tổn thương hệ biển</td>
+</tr>
+<tr>
+<td>Rừng Thông Chạng Vạng</td>
+<td>Thảo dược, cân bằng sinh thái, tri thức tự nhiên</td>
+<td>Sự ổn định của Cây Nguồn</td>
+<td>Tà khí lan rộng, sinh vật mất kiểm soát</td>
+</tr>
+<tr>
+<td>Lâu Đài Ma Vương</td>
+<td>Hấp thụ tà khí theo Hiệp Ước cũ</td>
+<td>Phong ấn và vật chứa Ma Vương</td>
+<td>Toàn bộ chu kỳ đứng trước nguy cơ vỡ</td>
+</tr>
+</tbody></table>
+<hr>
+</article><article class="info-card wide"><h3>10. Quy tắc trình bày map theo gameplay kiểu Capybara Go</h3><p>Mỗi khu vực không cần một bản đồ di chuyển tự do. Thay vào đó, người chơi cảm nhận thế giới qua chuỗi ngày, background, sự kiện và quần thể mob:</p>
+<ol>
+<li><strong>Đầu Hồi:</strong> Background sáng, cư dân sinh hoạt bình thường, mob bản địa xuất hiện với mật độ thấp.</li>
+<li><strong>Giữa Hồi:</strong> Dấu hiệu khủng hoảng tăng, background có vật thể kể chuyện, mob bắt đầu xuất hiện thành nhóm hoặc biến thể nhiễm tà.</li>
+<li><strong>Cuối Hồi:</strong> Không gian chuyển sang địa danh biểu tượng của vùng, thời tiết mạnh hơn và mob tinh nhuệ xuất hiện.</li>
+<li><strong>Trước Boss:</strong> Có 2-3 ngày báo hiệu qua âm thanh, dấu chân, lời đồn hoặc biến đổi môi trường.</li>
+<li><strong>Sau Boss:</strong> Background cho thấy hậu quả lựa chọn của người chơi, cư dân hoặc sinh vật quay lại sinh hoạt.</li>
+</ol>
+<p>Mỗi Hồi nên chuẩn bị tối thiểu:</p>
+<ul>
+<li>1 tranh đại diện khu vực.</li>
+<li>3-4 background chiến đấu.</li>
+<li>1 background Boss.</li>
+<li>1 background sau khi hoàn thành.</li>
+<li>4-7 mob bản địa, gồm mob thường, mob hỗ trợ, mob tinh nhuệ và Boss.</li>
+<li>8-12 sự kiện ngẫu nhiên phản ánh lối sống địa phương.</li>
+<li>3 nhóm vật phẩm rơi: tài nguyên phổ biến, vật liệu đặc trưng và vật phẩm kể chuyện.</li>
+<li>1 thay đổi hình ảnh rõ ràng thể hiện chu kỳ Ma Vương đang ảnh hưởng tới vùng.</li>
+</ul>
+<hr>
+</article><article class="info-card wide"><h3>11. Điều chỉnh thư mục mob đề xuất</h3><ul>
+<li>Hình Hắc Long Ignis đã được chuẩn hóa thành <code>4-06</code>, thuộc quần thể và Boss của Hồi 4.</li>
+<li>Hồi 4 hiện có quần thể rừng tốt nhưng thiếu hình Elaine hoặc tinh linh bóng tối nếu muốn minh họa đầy đủ các sự kiện.</li>
+<li>Hồi 1 có Ong giáp và Đại bàng gió chưa xuất hiện trong danh sách kẻ địch báo cáo; nên bổ sung chúng thành mob tự nhiên để hệ sinh thái thảo nguyên đa dạng hơn.</li>
+<li>Hồi 2 có Nhện đá chưa xuất hiện trong danh sách kẻ địch báo cáo; nên dùng làm mob mỏ sâu và sự kiện cảnh báo hầm sập.</li>
+<li>Hồi 4 có Tê giác gác rừng chưa xuất hiện trong báo cáo; nên dùng như sinh vật bản địa có thể thanh tẩy thay vì quái vật hoàn toàn xấu.</li>
+</ul>
+</article></section></section></main></div>
+<script>
+const buttons=[...document.querySelectorAll(".region-button")],panels=[...document.querySelectorAll(".panel")];
+function showRegion(id,updateHash=true){const target=panels.some(p=>p.id===id)?id:"peace";panels.forEach(p=>p.classList.toggle("active",p.id===target));buttons.forEach(b=>b.classList.toggle("active",b.dataset.region===target));if(updateHash)history.replaceState(null,"","#"+target);window.scrollTo({top:0,behavior:"smooth"})}
+buttons.forEach(button=>button.onclick=()=>showRegion(button.dataset.region));window.addEventListener("hashchange",()=>showRegion(location.hash.slice(1),false));showRegion(location.hash.slice(1),false);
+</script></body></html>
